@@ -35,7 +35,7 @@ The main aim of this paper was to collect the following information:
 - Software: Python 3.10.1
 
 ---
-## Summary 
+## Analysis
 
 The analysis of the election showed: 
 
@@ -142,5 +142,15 @@ The voter turnout for each county was
 The county with the largest voter turnout was Denver, which produced 82.8% of voters, for a total of 306,055 votes.
 
 <p align="center">
-<img src="analysis/election_results.png" width="400">
+<img src="analysis/election_results.png" width="300">
 </p>
+
+---
+
+## Summary 
+
+Originally this script was built as a tool for an election audit to find the overall results of a US Congressional precinct in Colorado, but by expanding the election audit to include voter turnout information, new insight was gained into how and where people voted. This can be beneficial information when reallocating resourcing to areas where turnout is low, or where certain demographics are hard to reach. 
+
+Though this script is being used to determine the results of a specific US Congressional precinct in Colorado, it can also be modified to be used in other elections. Currently, it is specified in the script to read the data in columns 2 and 3 to extract the county and candidate information, retrospectively.However, other election results may not be in this order, and contain more columns of information. A simple modification can be made so that the script will iterate through the header row, and read and collect the necessary information. 
+
+Another benefit of this script is that it can be continually modified to dig deeper into election campaigns, in order to gain new insight into how people vote, and where. By simply adding an if-statement, the percentage of votes a candidate won by county, for example, can be determined. 
