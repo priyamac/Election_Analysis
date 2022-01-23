@@ -81,13 +81,39 @@ There were 369,711 votes cast in the election.
         candidate_votes[candidate_name] += 1
   ```
     
- This code allows us to collect the following information;
+Candidates and vote counts:
  - Charles Casper Stockham recieved 85,213 votes
  - Diana DeGette recieved 272,892 votes
  - Anthony Doane recieved 11,606 votes
 
 #### - The total percentage of votes each candidate won
 
+```Python
+# Retrieve vote count and percentage
+        votes = candidate_votes.get(candidate_name)
+        vote_percentage = float(votes) / float(total_votes) * 100
+        candidate_results = (
+            f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+```
+
+Candidate vote percentage:
+- Charles Casper Stockham recieved 23.0% of the votes
+- Diana DeGette recieved 73.8% of the votes
+- Anthony Doane recieved 3.1% of the votes
+
+#### - The winner of the election based on popular vote
+
+```Python
+# Determine winning vote count, winning percentage, and candidate.
+        if (votes > winning_count):
+            winning_count = votes
+            winning_candidate = candidate_name
+            winning_percentage = vote_percentage
+```
+
+It can be determined that the winner of the election based on popular vote was **Diana Gette**, who received 73.8% of the votes with 272,892 votes
+
+#### - County turnout vote count & percentage
 ```Python
 # 6a: Write a for loop to get the county from the county dictionary.
     for county_name in county_votes:
@@ -100,11 +126,21 @@ There were 369,711 votes cast in the election.
             f"{county_name}: {county_percentage:.1f}% ({county:,})\n")
 ```
 
-This code allows us to collect the following information;
-- Charles Casper Stockham recieved 23.0% of the votes
-- Diana DeGette recieved 73.8% of the votes
-- Anthony Doane recieved 3.1% of the votes
-
-It can be determined that the winner of the election based on popular vote was **Diana Gette**, who received 73.8% of the votes with 272,892 votes
+The voter turnout for each county was
+- Jefferson produced 10.5% of voters, with 38,855 votes
+- Denver produced 82.8% of voters, with 306,055 votes
+- Arapahoe produced 6.7% of voters, with 24,801 votes
 
 
+#### - County with largest voter turnout
+```Python
+# 6f: Write an if statement to determine the winning county and get its vote count.
+        if (county > winning_county_count):
+            winning_county_count = county
+            winning_county = county_name
+```
+The county with the largest voter turnout was Denver, which produced 82.8% of voters, for a total of 306,055 votes.
+
+<p align="center">
+<img src="analysis/election_results.png" width="400">
+</p>
